@@ -15,3 +15,5 @@ class TestContact(unittest.TestCase):
 
         '''
         self.new_user=User("kipkorirbenjamin","BenjamiN41")
+
+    
