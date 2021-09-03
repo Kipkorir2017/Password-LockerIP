@@ -68,6 +68,13 @@ def check_existing_account(account_name):
     '''
     return Credential.account_exist(account_name)
 
+#function to delete account
+def delete_account(credential):
+    '''
+    Function to delete a account
+    '''
+    credential.delete_account()
+
 
 
 
