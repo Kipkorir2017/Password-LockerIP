@@ -31,3 +31,13 @@ class User:
                 return True
 
         return False
+
+
+    def find_user_by_name(cls,  username, password):
+        '''
+        Method to find user by name 
+        '''
+        for user in cls. User_list:
+            if user.username==username and user.password==password:
+                return user
+

@@ -22,4 +22,12 @@ class TestContact(unittest.TestCase):
         '''
         self.assertEqual(self.new_user.username,"kipkorirbenjamin")
         self.assertEqual(self.new_user.password,"BenjamiN41")
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        User.user_list = []
+
+    
     

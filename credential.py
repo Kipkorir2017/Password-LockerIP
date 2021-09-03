@@ -34,3 +34,12 @@ class Credential:
                 return True
 
         return False
+
+    @classmethod
+    def find_account_by_name(cls, account_name):
+        '''
+        Method to find account by account_name
+        '''
+        for account in cls.credential_list:
+            if account.account_name==account_name:
+                return account

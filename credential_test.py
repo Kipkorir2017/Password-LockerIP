@@ -23,4 +23,11 @@ class TestContact(unittest.TestCase):
         self.assertEqual(self.new_account.username,"kipkorirbenjamin")
         self.assertEqual(self.new_account.password,"BenjamiN41")
 
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credential.credential_list = []
+
     
