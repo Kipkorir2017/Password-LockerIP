@@ -39,3 +39,12 @@ def check_existing_user(username, password):
 
 #Credential Functions
 
+#function to create new account
+def create_account(account_name,username, password):
+    '''
+    function to create new account
+    '''
+    new_account=Credential(account_name,username,password)
+    return new_account
+
+
