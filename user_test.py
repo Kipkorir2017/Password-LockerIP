@@ -29,5 +29,13 @@ class TestContact(unittest.TestCase):
         '''
         User.user_list = []
 
-    #second Test 
+    #second Test, to confirm if new user has been saved to the new user list
+    def test_save_user(self):
+        '''
+        test to confirm if new user has been saved to the new user list
+        '''
+        self.new_user.save_user()
+        self.assertEqual(len(User.user_list))
+
+    #Third test
     

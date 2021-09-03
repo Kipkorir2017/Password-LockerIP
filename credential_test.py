@@ -74,4 +74,25 @@ class TestContact(unittest.TestCase):
         self.new_account.delete_account()# Deleting account credentials
         self.assertEqual(len(Credential.credential_list),1)
 
- 
+    #sixth Test,to test if account exist
+    def account_exists(self):
+        '''
+        test test case to check if account exist
+        '''
+        self.new_account.save_account()
+        check_account=Credential("Facebook","kipkorirbenjamin","BenjamiN41")
+        check_account.save_account()
+        account_exists=Credential.account_exist("Facebook","kipkorirbenjamin","BenjamiN41")
+        self.assertTrue(account_exists)
+
+    #seventh Test,to check if it  returns a list of all credentials saved
+
+    def test_display_all_accounts(self):
+        '''
+        test that returns a list of all credentials saved
+        '''
+
+        self.assertEqual(Credential.display_account(),Credential.credential_list)
+
+if __name__ == '__main__':
+    unittest.main()
