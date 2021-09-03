@@ -49,7 +49,20 @@ class TestContact(unittest.TestCase):
         test_account.save_account()
         self.assertEqual(len(Credential.credential_list),2)
 
-    #Fourth Test, to test if we can remove account  credentials
+    #Fourth Test, test to check if  can find a account by account name and display information
+    def test_find_account_by_name(self):
+        '''
+        test to check if  can find a account by account name 
+        '''
+        self.new_account.save_account()
+        test_account = Credential("Facebook", "Kipkorirbenjamin", "BenjamiN41")  # new account
+        test_account.save_account()
+
+        found_account = Credential.find_by_account_name("Facebook")
+        self.assertEqual(found_account.username, test_account.username)
+
+
+    #Fifth Test, to test if we can remove account  credentials
     def test_delete_contact(self):
         '''
         test_delete_account credentials to test if we can remove a credentials from our credential list
@@ -60,3 +73,5 @@ class TestContact(unittest.TestCase):
 
         self.new_account.delete_account()# Deleting account credentials
         self.assertEqual(len(Credential.credential_list),1)
+
+ 
