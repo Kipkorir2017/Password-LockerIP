@@ -47,4 +47,11 @@ def create_account(account_name,username, password):
     new_account=Credential(account_name,username,password)
     return new_account
 
+#function to save new account details
+def save_account(credential):
+    '''
+    function to save new created account details
+    '''
+    credential.save_account()
+
 
