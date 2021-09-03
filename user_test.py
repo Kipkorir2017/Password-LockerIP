@@ -16,4 +16,10 @@ class TestContact(unittest.TestCase):
         '''
         self.new_user=User("kipkorirbenjamin","BenjamiN41")
 
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_user.username,"kipkorirbenjamin")
+        self.assertEqual(self.new_user.password,"BenjamiN41")
     
