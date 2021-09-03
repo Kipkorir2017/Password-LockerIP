@@ -54,4 +54,20 @@ def save_account(credential):
     '''
     credential.save_account()
 
+#function to find account by acc name
+def find_account(account_name):
+    '''
+    Function to find account by account name and return account
+    '''
+    return Credential.find_account_by_name(account_name)
+
+#function to find account if exist and return boolean
+def check_existing_account(account_name):
+    '''
+    Function to check if account exist and return boolean value
+    '''
+    return Credential.account_exist(account_name)
+
+
+
 
