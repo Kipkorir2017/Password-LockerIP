@@ -21,3 +21,10 @@ def save_user(user):
     Function to save newly crated user
     '''
     user.save_user()
+
+#Function to find user
+def find_user(username, password):
+    '''
+    function to find user if it exist return account
+    '''
+    return User.find_by_name(username,password)
