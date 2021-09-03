@@ -30,10 +30,33 @@ class TestContact(unittest.TestCase):
         '''
         Credential.credential_list = []
 
-    
+    #second Test, to test if account credentials are already saved
     def test_save_account(self):
         '''
-        test if new credential account has  been saved to new credential list
+        test if new credentials has  been saved to new credential list
         '''
         self.new_account.save_account()
         self.assertEqual(len(Credential.credential_list))
+
+    #Third Test, to test if multiple account credentials are saved
+    def test_save_multiple_accounts(self):
+        '''
+        test_save_multiple_account to check if we can save multiple accounts
+        objects to our credential_list
+        '''
+        self.new_account.save_account()
+        test_account = Credential("Facebook","kipkorirbenjamin","BenjamiN41") # new account
+        test_account.save_account()
+        self.assertEqual(len(Credential.credential_list),2)
+
+    #Fourth Test, to test if we can remove account  credentials
+    def test_delete_contact(self):
+        '''
+        test_delete_account credentials to test if we can remove a credentials from our credential list
+        '''
+        self.new_account.save_account()
+        test_account = Credential("Test","username","password") # new credentials
+        test_account.save_account()
+
+        self.new_account.delete_account()# Deleting account credentials
+        self.assertEqual(len(Credential.credential_list),1)
