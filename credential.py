@@ -49,3 +49,11 @@ class Credential:
         Method to remove account credentials
         '''
         Credential.credential_list.remove(self)
+
+
+    @classmethod
+    def display_account(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.credential_list

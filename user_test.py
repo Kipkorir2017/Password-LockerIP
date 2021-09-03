@@ -37,5 +37,18 @@ class TestContact(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list))
 
-    #Third test
+    #Third test,to check if user details exist
+    def test_user_exists(self):
+        '''
+        test to check if user  exist list
+        '''
+        self.new_user.save_user()
+        check_user=User("kipkorirbenjamin","BenjamiN41")
+        check_user.save_user()
+        user_exists=User.user_exist("kipkorirbenjamin","BenjamiN41")
+        self.assertTrue(user_exists)
+
+if __name__ == '__main__':
+    unittest.main()
+
     

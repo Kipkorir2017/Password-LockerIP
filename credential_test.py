@@ -36,7 +36,7 @@ class TestContact(unittest.TestCase):
         test if new credentials has  been saved to new credential list
         '''
         self.new_account.save_account()
-        self.assertEqual(len(Credential.credential_list))
+        self.assertEqual(len(Credential.credential_list),1)
 
     #Third Test, to test if multiple account credentials are saved
     def test_save_multiple_accounts(self):
@@ -55,10 +55,10 @@ class TestContact(unittest.TestCase):
         test to check if  can find a account by account name 
         '''
         self.new_account.save_account()
-        test_account = Credential("Facebook", "Kipkorirbenjamin", "BenjamiN41")  # new account
+        test_account = Credential("Facebook", "kipkorirbenjamin", "BenjamiN41")  # new account
         test_account.save_account()
 
-        found_account = Credential.find_by_account_name("Facebook")
+        found_account = Credential.find_account_by_name("Facebook")
         self.assertEqual(found_account.username, test_account.username)
 
 
