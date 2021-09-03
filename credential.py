@@ -43,3 +43,9 @@ class Credential:
         for account in cls.credential_list:
             if account.account_name==account_name:
                 return account
+
+    def delete_account(self):
+        '''
+        Method to remove account credentials
+        '''
+        Credential.credential_list.remove(self)

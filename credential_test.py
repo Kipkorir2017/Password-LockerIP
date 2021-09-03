@@ -31,3 +31,9 @@ class TestContact(unittest.TestCase):
         Credential.credential_list = []
 
     
+    def test_save_account(self):
+        '''
+        test if new credential account has  been saved to new credential list
+        '''
+        self.new_account.save_account()
+        self.assertEqual(len(Credential.credential_list))
