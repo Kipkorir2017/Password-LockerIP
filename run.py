@@ -90,7 +90,7 @@ def response_none(question):
     '''
     response = None
     while response not in ("Y", "N"):
-     response = input(question).lower()
+     response = input(question).upper()
     return response
 
 
@@ -133,19 +133,19 @@ def main():
     print('\n')
 
 
-if check_existing_user(user_name, pass_word):
+    if check_existing_user(user_name, pass_word):
 
 
         while True:
             print('\n')
             print("  ")
             print('\n')
-            print("Use these  Abbreviations :\n\ CA - create a new account credential \n\ Dis - display account \n\ FA -find an account \n\ DL - delete account \n\ EX -exit the account list ")
+            print("Use these  Abbreviations :\n\ CA - create a new account credential \n\FA -find an account \n\ DL - delete account \n\ DA - display account \n\ EX -exit the account list ")
             print('\n')
             print("  ")
             print('\n')
          
-            short_code = input().lower()
+            short_code = input().upper()
 
             if short_code == 'CA':
                 print("New Credential Account")
@@ -176,6 +176,70 @@ if check_existing_user(user_name, pass_word):
                     print("Password:")
                     password = input()
 
+                save_account(create_account(account_name, username, password))
+                print('\n')
+                print(
+                    f"New account: {account_name}  with user name : {username} created :{password}")
+                print('\n')
+
+            elif short_code == 'DA':
+                if display_account():
+                    print("List of all your accounts")
+                    print('\n')
+
+                    for credential in display_account():
+                        print(f"{credential.account_name} | {credential.username} | {credential.password}")
+
+                else:
+                    print('\n')
+                    print("You dont seem to have any accounts saved yet")
+                print('\n')
+
+            elif short_code == 'FA':
+                print("Enter the account name you want to search for")
+
+                search_account = input()
+                if check_existing_account(search_account):
+                    check_account = find_account(search_account)
+                    print(f"{check_account.account_name}")
+                    print('-' * 20)
+
+                    print(f"Account Name:{check_account.account_name}")
+                    print(f"Username:{check_account.username}")
+                else:
+                    print("That account does not exist")
+                print('\n')
+
+            elif short_code == 'DL':
+                print("Enter name of account to delete")
+                search_account = input()
+                if check_existing_account(search_account):
+                    print("Please wait:")
+                    check_account = find_account(search_account)
+                    delete_account(check_account)
+                    print(
+                        f"Account {check_account.account_name}deleted successfully")
+                else:
+                    print('\n')
+                    print("You dont seem to have any accounts saved yet")
+
+            elif short_code == "EX":
+                print("Byeeee")
+                break
+            else:
+                print("I really didn't get that. Please use the Abbreviations")
+    else:
+        
+        print("That account does not exist. Please create account")
+        print('\n')
+
+        main()
+
+        print('\n')
+
+
+if __name__ == '__main__':
+    main()
 
 
 
