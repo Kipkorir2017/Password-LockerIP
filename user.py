@@ -3,9 +3,9 @@ class User:
     class that generate new instances of users details
 
     '''
-    def __init__(self,username,password):
-        user_list=[]
+    user_list=[]
 
+    def __init__(self,username,password):
         self.username=username
         self.password=password
 
@@ -18,7 +18,7 @@ class User:
      #looping through to check if  user exist in the list
     @classmethod
 
-    def user_exist(cls, username, password):
+    def user_exist(cls,username,password):
         '''
         User_exist method that checks if a user exist from the user list.
         Args:
@@ -33,7 +33,7 @@ class User:
         return False
 
 
-    def find_user_by_name(cls,  username, password):
+    def find_user_by_name(cls,username,password):
         '''
         Method to find user by name 
         '''

@@ -8,11 +8,11 @@ import string
 #User class Functions
 
 #Function to create user
-def create_user():
+def create_user(username, password):
     '''
     Function to create new account
     '''
-    new_user=User("username","password")
+    new_user=User(username,password)
     return new_user
 
 #Function to save user 
@@ -23,19 +23,19 @@ def save_user(user):
     user.save_user()
 
 #Function to find user
-def find_user(username, password):
+def find_user(cls,username,password):
     '''
     function to find user if it exist return account
     '''
-    return User.find_by_name(username,password)
+    return User.find_user_by_name(cls,username,password)
 
 #function to check if user exist and return boolean value
 
-def check_existing_user(username, password):
+def check_existing_user(username,password):
     '''
     Function to check if a user exist with username and password and returns a Boolean
     '''
-    return User.user_exist(username, password)
+    return User.user_exist(username,password)
 
 #Credential Functions
 
@@ -74,6 +74,65 @@ def delete_account(credential):
     Function to delete a account
     '''
     credential.delete_account()
+
+#function to display account
+def display_account():
+    '''
+    Function that returns all the saved accounts
+    '''
+    return Credential.display_account()
+
+#Main Function
+
+def response_none(question):
+    '''
+    Users response on whether to generate password or not
+    '''
+    response = None
+    while response not in ("Y", "N"):
+     response = input(question).lower()
+    return response
+
+
+
+
+def main():
+    print("----------------")
+    print('\n')
+    print(f"Welcome to Password Locker, save and remember your passwords.")
+    print('\n')
+    print(" ---------------")
+    print('\n')
+    print("Please create Account:")
+    print('\n')
+
+
+
+    print("Enter your New username")
+    username = input()
+    print("Enter your New password")
+    password = input()
+    save_user(create_user(username, password))
+    print('\n')
+    
+
+    print("             ")
+    print('\n')
+    print(f"Hello {username}, Thank you for creating an account.")
+    print('\n')
+    print("--------------")
+
+    print("Proceed to Login")
+    print('\n')
+
+    print("Enter your Username:")
+    user_name = input()
+
+    print("Enter your Password:")
+    pass_word = input()
+    print('\n')
+
+
 
 
 
