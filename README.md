@@ -40,6 +40,7 @@ A simple python program which can be executed  in the terminal. The app, stores 
   * 0710383269
 
 ## License
+ * <a>https://github.com/Kipkorir2017/Password-LockerIP/blob/master/LICENSE</a>
 
 
 
