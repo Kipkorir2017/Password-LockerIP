@@ -133,6 +133,31 @@ def main():
     print('\n')
 
 
+if check_existing_user(user_name, pass_word):
+
+
+        while True:
+            print('\n')
+            print("  ")
+            print('\n')
+            print("Use these  Abbreviations :\n\ CA - create a new account credential \n\ Dis - display account \n\ FA -find an account \n\ DL - delete account \n\ EX -exit the account list ")
+            print('\n')
+            print("  ")
+            print('\n')
+         
+            short_code = input().lower()
+
+            if short_code == 'CA':
+                print("New Credential Account")
+                print("-"*10)
+
+                print("Account Name:")
+                account_name = input()
+
+                print("Username:")
+                username = input()
+
+
 
 
 
